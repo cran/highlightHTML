@@ -1,0 +1,31 @@
+---
+title: "Rmd to HTML"
+author: "Brandon LeBeau"
+date: "January 13, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Simple Markup
+The `highlightHTML` packages allows for {#bggrey simple markup} to add styling to text and tables. Using the `rmarkdown` package and the `table_id_inject` function allows users to easily add markup to Rmd documents and render directly to HTML.
+
+```{r symm, echo = FALSE, results = 'asis', message = FALSE}
+library(dplyr)
+library(highlightHTML)
+
+chickwts %>%
+  group_by(feed) %>%
+  summarise(avg_weight = mean(weight),
+            sd_weight = sd(weight)) %>%
+  mutate(feed = as.character(feed)) %>%
+  table_id_inject(id = c('#bggrey', '#bgblack', '#bglightred', '#textblue'), 
+                conditions = c('> 270', '> 300', '> 60', '== "horsebean"'),
+                variable = list('avg_weight', 'avg_weight', 'sd_weight', 'feed'),
+                num_digits = 3) %>%
+  knitr::kable(format = 'markdown')
+```
+
+

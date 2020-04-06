@@ -1,4 +1,4 @@
-## ----function, eval=FALSE------------------------------------------------
+## ----function, eval=FALSE-----------------------------------------------------
 #  library(highlightHTML)
 #  file <- system.file('examples', 'bgtable.html',
 #                      package = 'highlightHTML')
@@ -11,7 +11,7 @@
 #                 print = FALSE,
 #                 render = FALSE)
 
-## ----text, eval = FALSE--------------------------------------------------
+## ----text, eval = FALSE-------------------------------------------------------
 #  file <- system.file('examples', 'bgtext.html', package = 'highlightHTML')
 #  
 #  # Change background color and text color with CSS
@@ -23,7 +23,7 @@
 #  highlight_html(input = file, output = tempfile(fileext = ".html"),
 #                 tags = tags, browse = TRUE, render = FALSE)
 
-## ----symm, echo = FALSE, results = 'asis', message = FALSE---------------
+## ----symm, echo = FALSE, results = 'asis', message = FALSE--------------------
 library(dplyr)
 library(highlightHTML)
 
@@ -31,14 +31,15 @@ chickwts %>%
   group_by(feed) %>%
   summarise(avg_weight = mean(weight),
             sd_weight = sd(weight)) %>%
-  mutate(feed = as.character(feed)) %>%
+  mutate(feed = as.character(feed)) %>% 
+  data.frame() %>%
   table_id_inject(id = c('#bggrey', '#bgblack', '#bglightred', '#textblue'), 
                 conditions = c('> 270', '> 300', '> 60', '== "horsebean"'),
                 variable = list('avg_weight', 'avg_weight', 'sd_weight', 'feed'),
                 num_digits = 3) %>%
   knitr::kable(format = 'markdown')
 
-## ----joss_compile, eval=FALSE--------------------------------------------
+## ----joss_compile, eval=FALSE-------------------------------------------------
 #  library(highlightHTML)
 #  file <- system.file('examples', 'joss.Rmd', package = 'highlightHTML')
 #  

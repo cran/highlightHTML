@@ -1,7 +1,7 @@
 Package: highlightHTML
 Type: Package
 Title: Highlight HTML Text and Tables
-Version: 0.2.4
+Version: 0.2.5
 Authors@R: person("Brandon", "LeBeau", 
                   email = "lebebr01+highlightHTML@gmail.com",
                   role = c("aut", "cre"),
@@ -19,7 +19,7 @@ VignetteBuilder: knitr
 URL: https://github.com/lebebr01/highlightHTML
 BugReports: https://github.com/lebebr01/highlightHTML/issues
 NeedsCompilation: no
-Packaged: 2020-04-03 03:20:48 UTC; bleb
+Packaged: 2020-04-21 03:19:52 UTC; brandonlebeau
 Author: Brandon LeBeau [aut, cre] (<https://orcid.org/0000-0002-1265-8761>)
 Repository: CRAN
-Date/Publication: 2020-04-06 16:52:06 UTC
+Date/Publication: 2020-04-21 12:20:18 UTC

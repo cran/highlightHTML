@@ -45,6 +45,7 @@ The options are only limited based on your knowledge of CSS.
 # Setting path for example html files 
 # To see path where these are saved, type file or file1 in the 
 # r console.
+\dontrun{
 file <- system.file('examples', 'bgtable.html', package = 'highlightHTML')
 
 # Creating CSS tags to inject into HTML document
@@ -54,4 +55,5 @@ tags <- c("#bgred {background-color: #FF0000;}",
 # Command to post-process HTML file - Writes to temporary file
 highlight_html(input = file, output = tempfile(fileext = ".html"),  
   tags = tags, browse = FALSE)
+}
 }
